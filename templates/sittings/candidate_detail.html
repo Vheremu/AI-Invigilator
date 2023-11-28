@@ -1,0 +1,18 @@
+{% extends 'sittings/sittingsbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Candidate Detail View!</h1>
+<h2>Candidate Details:</h2>
+<p>Name:{{candidate_details.user.user.username}}</p>
+<p>Sitting:{{candidate_details.sitting.name}}</p>
+
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'sittings_app:updatecandidate' pk=candidate_details.pk %}'>Update</a></p>
+</div>
+<div class='container'>
+  <p><a class ='btn btn-danger'href='{% url 'sittings_app:deletequestion' pk=candidate_details.pk %}'>Delete</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'groups/groupbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Group Detail View!</h1>
+<h2>Group  Details:</h2>
+<p>Name:{{group_details.name}}</p>
+<p>description:{{group_details.description}}</p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'groups_app:update' pk=group_details.pk %}'>Update</a></p>
+</div>
+<div class='container'>
+  <p><a class ='btn btn-danger'href='{% url 'groups_app:delete' pk=group_details.pk %}'>Delete</a></p>
+</div>
+<h3>Membership Requests:</h3>
+{% for GroupMember in group_details.membershipsrequest.all %}
+<p>Name:{{GroupMember.user.user}} </p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'groups_app:memberrequestdetail' pk=GroupMember.pk %}'>Edit</a></p>
+</div>
+{% endfor %}
+<h3>Members:</h3>
+{% for GroupMember in group_details.memberships.all %}
+<p>Name:{{GroupMember.user.user}} </p>
+<form method='POST'action={% url 'groups_app:deletemember'%}>
+  {% csrf_token %}
+  <input type='hidden'name='name'value={{GroupMember.user}}>
+  <input type='hidden'name='id'value={{GroupMember.pk}}>
+ <input class='btn btn-danger'type='submit'value='Delete'></form>
+
+</div>
+
+{% endfor %}
+{% endblock %}

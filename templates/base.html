@@ -1,0 +1,38 @@
+<html>
+{% load static %}
+<head>
+<title>
+{% block title_html %}{% endblock %}
+</title>
+<link rel='stylesheet'href={% static 'css/style.css'%}>
+<link rel='stylesheet'href={% static 'bs/css/bootstrap.css'%}>
+</head>
+<body>
+  <nav class ='navbar navbar-expand-lg-navbar-light bg-light 'align='center'>
+      <div class='nav navbar-header'align='center'>
+        <ul class='nav navbar-header'>
+
+          <li><a class='navbar-brand'href='{%url 'index'%}'>Home</a></li>
+          <li><a class='navbar-brand'href='{%url 'students_app:register'%}'>Students</a></li>
+          <li><a class='navbar-brand'href=''>About</a></li>
+          <li><a class='navbar-brand'href=''>Help</a></li>
+          <li><a class='navbar-brand'href=''>Feedback</a></li>
+
+          {% if user.is_authenticated %}<img src={{user.profile_pic.jpg}} alt='ohh noo its john cena '/>
+            <li><a class='navbar-link'href='{% url 'accounts_app:user_logout'%}'>Hello:{{user.username}} Logout</a></li>
+          {% else %}<img src={% static 'images/img1.jpg'%}alt='login'/>
+            <li><a class='navbar-link'href='{% url 'accounts_app:user_login'%}'>Login</a></li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </nav>
+<h1>
+ {% block body_block %}{% endblock %}
+</h1>
+<article>
+{% block article_content %}{% endblock %}
+<hr><h3>Copyright AI Invigilator 2023</h3><hr>
+</article>
+</body>
+</html>

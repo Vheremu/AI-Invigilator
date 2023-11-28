@@ -1,0 +1,36 @@
+{% extends 'sittings/sittingsbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Sitting Detail View!</h1>
+<h2>Sitting Details:</h2>
+<p>Name:{{sitting_details.name}}</p>
+<p>Sitting ID:{{sitting_details.id}}</p>
+<p>Description:{{sitting_details.description}}</p>
+<p>Exam:{{sitting_details.exam}}</p>
+<p>Length:{{sitting_details.length}}</p>
+<p>Schedule:{{sitting_details.schedule}}</p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'sittings_app:update' pk=sitting_details.pk %}'>Update</a></p>
+</div>
+<div class='container'>
+  <p><a class ='btn btn-danger'href='{% url 'sittings_app:delete' pk=sitting_details.pk %}'>Delete</a></p>
+</div>
+<h3>Candidates Requests:</h3>
+{% for candidate in sitting_details.candidaterequests.all %}
+<p>Name:{{candidate.user.user.username}} </p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'sittings_app:candidaterequestdetail' pk=candidate.pk %}'>Edit</a></p>
+</div>
+{% endfor %}
+<h3>Candidates:</h3>
+{% for candidate in sitting_details.candidates.all %}
+<p>Name:{{candidate.user.user.username}} </p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'sittings_app:candidatedetail' pk=candidate.pk %}'>Edit</a></p>
+</div>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<h1>Online Invigilator Portal!</h1>
+<div class='card'>
+
+  {% if user.is_authenticated %}
+    <h3>Welcome back :{{user.username}} </h3>
+
+  {% else %}
+    <h2>Online Invigilator Portal</h2>
+    <h3>New to AI INVIGILATOR ?<br><a class='card'href='{% url 'accounts_app:register'%}'>Register here</a><br><br></h3>
+  {% endif %}
+
+</div>
+{% if user.is_athenticated %}
+{% if lecturers %}
+{{insert_me}}
+{{lecturers}}
+
+<div class='container'><h1>Lecturers Menu</h1>
+<h3><li><a class='navbar-brand'href='{% url 'sittings_app:index' %}'>SITTINGS</a></li>
+<h3><li><a class='navbar-brand'href='{% url 'exams_app:index' %}'>EXAM</a></li>
+<li><a class='navbar-brand'href='{% url 'groups_app:index' %}'>GROUPS</a></li></h3>
+</div>
+{% endif %}
+{{insert_me}}
+{{lecturers}}
+
+<div class='card'>
+
+    <h3><a href='{% url 'registergroup'%}'>Register Your Relevant Group!</a><br> </h3>
+
+
+</div>
+
+
+
+
+{% endif %}
+{% endblock %}

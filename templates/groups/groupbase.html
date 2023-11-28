@@ -1,0 +1,37 @@
+<html>
+{% load static %}
+<head>
+<title>
+{% block title_html %}{% endblock %}
+</title>
+<link rel='stylesheet'href={% static 'css/style.css'%}>
+<link rel='stylesheet'href={% static 'bs/css/bootstrap.css'%}>
+</head>
+<body>
+  <nav class ='navbar navbar-expand-lg-navbar-light bg-light 'align='center'>
+      <div class='nav navbar-header'align='center'>
+        <ul class='nav navbar-header'>
+          <li><a class='navbar-brand'href='{% url 'groups_app:index'%}'>GROUPS MENU</a></li>
+          <li><a class='navbar-brand'href='{% url 'groups_app:list' %}'>LIST GROUPS</a></li>
+          <li><a class='navbar-brand'href='{% url 'groups_app:create' %}'>CREATE GROUP</a></li>
+              <li><a class='navbar-brand'href='{% url 'registergroup' %}'>REQUEST GROUPMEMBERSHIP</a></li>
+          <!-- <li><a class='navbar-brand'href='{% url 'groups_app:createmember' %}'>CREATE GROUP MEMBER</a></li> -->
+          <li><a class='navbar-brand'href='{% url 'index'%}'>MAIN MENU</a></li>
+          {% if user.is_authenticated %}<img src={{user.profile_pic}} alt='404'/>
+            <li><a class='navbar-link'href='{% url 'accounts_app:user_logout'%}'>Hello:{{user.username}} Logout</a></li>
+          {% else %}<img src={% static 'images/img1.jpg'%}alt='login'/>
+            <li><a class='navbar-link'href='{% url 'accounts_app:user_login'%}'>Login</a></li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </nav>
+<h1>
+Groups Application Base Header- {% block body_block %}{% endblock %}
+</h1>
+<article>
+{% block article_content %}{% endblock %}
+<h3>Groups Application Base Footer</h3>
+</article>
+</body>
+</html>

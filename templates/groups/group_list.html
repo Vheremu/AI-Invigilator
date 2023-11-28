@@ -1,0 +1,14 @@
+{% extends 'groups/groupbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Group List View !</h1>
+<ol>
+  {% for groups in group %}
+  <h2><li><a href='{{groups.id}}'>{{groups.name}}</a></li></h2>
+  {% endfor %}</ol>
+  <h1><br><hr>{{group}}<br>{{data}}{{group.memberships}}</h1>
+
+{% endblock %}

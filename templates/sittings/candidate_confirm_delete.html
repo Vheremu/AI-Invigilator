@@ -1,0 +1,14 @@
+{% extends 'sittings/sittingsbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Candidate Delete View!</h1>
+<h2>Delete {{candidate_details.name}}?</h2>
+<form method = 'post'>
+  {% csrf_token %}
+  <input type='submit' class='btn btn-danger'value='Delete'>
+  <a href='{% url 'sittings_app:list' %}'>Cancel</a>
+</form>
+{% endblock %}

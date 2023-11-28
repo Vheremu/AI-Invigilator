@@ -1,0 +1,14 @@
+{% extends 'exams/exam_base.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Exam Delete View!</h1>
+<h2>Delete {{exam_details.name}}?</h2>
+<form method = 'post'>
+  {% csrf_token %}
+  <input type='submit' class='btn btn-danger'value='Delete'>
+  <a href='{% url 'exams_app:detail' pk=exam_details.pk %}'>Cancel</a>
+</form>
+{% endblock %}

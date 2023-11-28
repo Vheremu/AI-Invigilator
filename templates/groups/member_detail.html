@@ -1,0 +1,18 @@
+{% extends 'groups/groupbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Group Member Detail View!</h1>
+<h2>Group Member Details:</h2>
+<p>Group:{{member_details.group}}</p>
+<p>User:{{member_details.user}}</p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'groups_app:updatemember' pk=member_details.pk %}'>Update</a></p>
+</div>
+<div class='container'>
+  <p><a class ='btn btn-danger'href='{% url 'groups_app:deletemember' pk=member_details.pk %}'>Delete</a></p>
+</div>
+
+{% endblock %}

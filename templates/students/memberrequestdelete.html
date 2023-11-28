@@ -1,0 +1,14 @@
+{% extends 'students/students_base.html' %}
+{% load static %}
+{% block body_block %}
+<h1>Welcome To Delete Sitting Request Form!<br>
+<form method='POST'>
+  {% csrf_token %}
+  <input type='hidden'name='delete'value='true'>
+  <input type='hidden'name='id'value={{sitting.pk}}>
+  <p>Delete Request For: {{sitting.sitting}} ?</p>
+  <input class='btn btn-danger' type='submit' value='Delete'>
+  <a href='{% url 'students_app:mysittings'  %}'>Cancel</a>
+
+</form>
+{% endblock %}

@@ -1,0 +1,36 @@
+<html>
+{% load static %}
+<head>
+<title>
+{% block title_html %}{% endblock %}
+</title>
+<link rel='stylesheet'href={% static 'css/style.css'%}>
+<link rel='stylesheet'href={% static 'bs/css/bootstrap.css'%}>
+</head>
+<body>
+  <nav class ='navbar navbar-expand-lg-navbar-light bg-light 'align='center'>
+      <div class='nav navbar-header'align='center'>
+        <ul class='nav navbar-header'>
+          <li><a class='navbar-brand'href='{% url 'exams_app:index'%}'>EXAMS MENU</a></li>
+          <li><a class='navbar-brand'href='{% url 'exams_app:list' %}'>LIST EXAMS</a></li>
+          <li><a class='navbar-brand'href='{% url 'exams_app:create' %}'>CREATE EXAM</a></li>
+          <li><a class='navbar-brand'href='{% url 'exams_app:createquestion' %}'>CREATE QUESTION</a></li>
+          <li><a class='navbar-brand'href='{% url 'index'%}'>MAIN MENU</a></li>
+          {% if user.is_authenticated %}<img src={{user.profile_pic}} alt='404'/>
+            <li><a class='navbar-link'href='{% url 'accounts_app:user_logout'%}'>Hello:{{user.username}} Logout</a></li>
+          {% else %}<img src={% static 'images/img1.jpg'%}alt='login'/>
+            <li><a class='navbar-link'href='{% url 'accounts_app:user_login'%}'>Login</a></li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </nav>
+<h1>
+Exams Application Base Header- {% block body_block %}{% endblock %}
+</h1>
+<article>
+{% block article_content %}{% endblock %}
+<h3>Exams Application Base Footer</h3>
+</article>
+</body>
+</html>

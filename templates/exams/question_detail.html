@@ -1,0 +1,23 @@
+{% extends 'exams/exam_base.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Question Detail View!</h1>
+<h2>Question Details:</h2>
+<p>Question:{{question_details.question}}</p>
+<p>ID:{{question_details.id}}</p>
+<p>A:{{question_details.a}}</p>
+<p>B:{{question_details.b}}</p>
+<p>C:{{question_details.c}}</p>
+<p>D:{{question_details.d}}</p>
+<p>Answer:{{question_details.answer}}</p>
+<p>Exam:{{question_details.exam}}</p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'exams_app:updatequestion' pk=question_details.pk %}'>Update</a></p>
+</div>
+<div class='container'>
+  <p><a class ='btn btn-danger'href='{% url 'exams_app:deletequestion' pk=question_details.pk %}'>Delete</a></p>
+</div>
+{% endblock %}

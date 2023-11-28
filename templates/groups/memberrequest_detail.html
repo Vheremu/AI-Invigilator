@@ -1,0 +1,27 @@
+{% extends 'groups/groupbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Group Member Request View!</h1>
+<h2>Group Member Request Details:</h2>
+<p>User:{{memberrequest_details.user}}</p>
+<div class='container'>
+  <form method='POST'action={% url 'groups_app:addmember'%}>
+    {% csrf_token %}
+    <input type='hidden'name='name'value={{memberrequest_details.user}}>
+    <input type='hidden'name='id'value={{memberrequest_details.pk}}>
+   <input class='btn btn-primary'type='submit'value='Add'></form>
+
+</div>
+<div class='container'>
+  <form method='POST'action={% url 'groups_app:deletememberrequest'%}>
+    {% csrf_token %}
+    <input type='hidden'name='name'value={{memberrequest_details.user}}>
+    <input type='hidden'name='id'value={{memberrequest_details.pk}}>
+   <input class='btn btn-danger'type='submit'value='Delete'></form>
+
+</div>
+
+{% endblock %}

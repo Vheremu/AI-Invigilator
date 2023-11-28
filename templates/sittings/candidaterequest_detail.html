@@ -1,0 +1,25 @@
+{% extends 'sittings/sittingsbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Candidate Request Detail View!</h1>
+<h2>Candidate Request Details:</h2>
+<p>Name:{{candidaterequest_details.user.user.username}}</p>
+<p>Sitting:{{candidaterequest_details.sitting.name}}</p>
+
+<div class='container'>
+  <form method='POST'action={% url 'sittings_app:addcandidate'%}>
+    {% csrf_token %}
+    <input type='hidden'name='userid'value={{candidaterequest_details.user.user.id}}>
+    <input type='hidden'name='sittingid'value={{candidaterequest_details.sitting.id}}>
+        <input type='hidden'name='candidaterequestid'value={{candidaterequest_details.id}}>
+   <input class='btn btn-primary'type='submit'value='Add'></form>
+
+</div>
+<div class='container'>
+  <p><a class ='btn btn-danger'href='{% url 'sittings_app:deletecandidaterequest' pk=candidaterequest_details.pk %}'>Delete</a></p>
+</div>
+
+{% endblock %}

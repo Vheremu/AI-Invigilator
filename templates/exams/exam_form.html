@@ -1,0 +1,16 @@
+{% extends 'exams/exam_base.html' %}
+{% load static %}
+{% block body_block %}
+<h1>Welcome To Exam Form!<br>
+{% if not form.instance.pk %}
+Create Exam
+{% else %}
+Update Exam
+{% endif %}
+</h1>
+<form method = 'post'>
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type='submit' class='btn btn-primary'value='submit'>
+
+{% endblock %}

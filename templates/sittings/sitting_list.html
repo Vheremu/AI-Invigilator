@@ -1,0 +1,13 @@
+{% extends 'sittings/sittingsbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Sitting List View !</h1>
+<ol>
+  {% for sitting in sittings %}
+  <h2><li><a href='{{sitting.id}}'>{{sitting.name}}</a></li></h2>
+  {% endfor %}
+
+{% endblock %}

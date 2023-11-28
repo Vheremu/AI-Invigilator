@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+{% if user.is_authenticated %}
+<h1>username:{{user.username}}<br>usertype:{{user.registrationnumber}}<br>
+{% if user.is_student  %}
+<h1>Welcome To Add Exam Page!</h1>
+<h3>
+  <div class='container'>
+    <form method='post'>
+        {% csrf_token %}
+        {{form.as_p}}
+      <input type='submit'class='btn btn-primary value='Submit'>
+    </form>
+  </div>
+ </h3>
+ {% elif user.is_student %}
+ <h1>You are  false , sorry</h1>
+ {% else %}
+ <h1>You are  false , sorry</h1>
+ {% endif%}
+{% else %}
+<h1>please login to access this page </h1>
+{% endif %}
+
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'exams/exam_base.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Exam Detail View!</h1>
+<h2>Exam Details:</h2>
+<p>Name:{{exam_details.name}}</p>
+<p>Exam Code:{{exam_details.code}}</p>
+<p>Description:{{exam_details.description}}</p>
+<p>Exam Group:{{exam_details.group}}</p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'exams_app:update' pk=exam_details.pk %}'>Update</a></p>
+</div>
+<div class='container'>
+  <p><a class ='btn btn-danger'href='{% url 'exams_app:delete' pk=exam_details.pk %}'>Delete</a></p>
+</div>
+<h3>Questions:</h3>
+{% for question in exam_details.questions.all %}
+<p>{{question.question}} </p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'exams_app:questiondetail' pk=question.pk %}'>Edit</a></p>
+</div>
+
+{% endfor %}
+{% endblock %}

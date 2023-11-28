@@ -1,0 +1,35 @@
+{% extends 'students/students_base.html' %}
+{% load static %}
+{% block body_block %}
+<h1>Welcome To Sitting Detail View!<br>
+  <h2>Sitting Details:</h2>
+  <p>Name:{{sitting.name}}</p>
+  <p>Sitting ID:{{sitting.id}}</p>
+  <p>Description:{{sitting.description}}</p>
+  <p>Exam:{{sitting.exam}}</p>
+  <p>Length:{{sitting.length}}</p>
+  <p>Schedule:{{sitting.schedule}}</p>
+  <p>Time Left:{{time}}</p>
+  <p>Write:{{write}}</p>
+  {%if writes %}
+  <div class='container'>
+    <form action={% url 'writeexams_app:systemcheck'%} method='POST'>
+      <div class='container'>
+      {% csrf_token %}
+      <input class='btn btn-primary'type='submit'name='submit'value='System Check'align='center'>
+    </form>
+  </div>
+  <p><b>NB</b>: Come back 30 minutes before schudeled time to take exam .</p>
+  {%else%}
+  <div class='container'>
+
+    <form action={% url 'writeexams_app:index'%} method='POST'>
+      <div class='container'>
+      {% csrf_token %}
+      <input type='hidden'name='id'value={{sitting.id}}>
+      <input class='btn btn-primary' type='submit'name='submit'value='Take Exam'align='center'>
+    </form>
+  </div>
+  {%endif%}
+
+{% endblock %}

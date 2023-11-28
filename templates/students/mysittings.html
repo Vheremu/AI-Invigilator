@@ -1,0 +1,20 @@
+{% extends 'students/students_base.html' %}
+{% load static %}
+{% block body_block %}
+<h1>Welcome To My Sittings Form!<br>
+  {% if pendings %}
+  <h2>Pending Sitting Requests</h2>
+  {% for pending in pendings %}
+  <ul><h3><li>Sitting Name:- {{pending.sitting}}</li></h3></ul>
+  <div class='container'>
+    <p><a class ='btn btn-danger'href='{% url 'students_app:deletesittingrequest' pk=pending.pk %}'>Dlete</a></p>
+  </div>
+  {% endfor %}
+  {% endif%}
+  {% if sittings %}
+  <h2>Registered Sittings </h2>
+  {% for sitting in sittings %}
+  <ul><h3><li><a href='{{sitting.id}}'> Sitting Name:- {{sitting.sitting}}</a></li></h3></ul>
+  {% endfor %}
+  {% endif%}
+{% endblock %}
