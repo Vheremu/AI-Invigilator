@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+
+<div class="container">
+  <!-- <img src={% static 'images/img1.jpg'%} alt='ohh noo its john cena'/> -->
+  <h1>Registration</h1>
+
+<h3>
+  <img src={% static 'images/img1.jpg'%}alt='login'/>
+    <br><a class='card'href='{% url 'accounts_app:registerstudent'%}'>Student</a><br><br></h3><h3>
+   <br><a class='card'href='{% url 'accounts_app:registerlecturer'%}'>Lecturer</a><br><br></h3>
+</div>
+{% endblock %}

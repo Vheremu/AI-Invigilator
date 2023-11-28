@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block body_block %}
+<img src={% static 'images/img1.jpg'%} alt='img3'/>
+<div class='container'align ='center'>
+  {% if registered %}
+   <h1>Thank you for registering!</h1>
+ {% else %}
+   <h1>Register Student Here!</h1>
+   <h3>Fill out the form:</h3>
+   <form action={% url 'accounts_app:registerstudent'%} method='POST'enctype='multipart/form-data' method='post' align='center'>
+     <div class='container'>
+     {% csrf_token %}
+     {{ user_form.as_p }}
+     {{ student_form.as_p }}
+     </div>
+     <input type='submit' name='' value='Register'>
+
+   </form>
+ {% endif %}
+
+
+</div>
+{% endblock %}

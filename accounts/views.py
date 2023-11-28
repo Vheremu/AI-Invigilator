@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from accounts.forms import UserForm,UserProfileInfoForm
+from accounts.forms import UserForm,UserProfileInfoForm,StudentInfoForm,LecturerInfoForm
 from django.urls import reverse
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import authenticate,login,logout
@@ -33,6 +33,8 @@ def user_login(request):
 
 def index(request):
     return render(request,'index.html')
+def prompt(request):
+    return render(request,'accounts/prompt.html')
 def register(request):
     registered = False
     if request.method == 'POST':
@@ -54,3 +56,45 @@ def register(request):
         user_form = UserForm()
         profile_form = UserProfileInfoForm()
     return render(request,'accounts/registration.html',{'user_form':user_form,'profile_form':profile_form,'registered':registered})
+def registerstudent(request):
+    registered = False
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+        student_form = StudentInfoForm(data=request.POST)
+        if user_form.is_valid() and student_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            student = student_form.save(commit=False)
+            student.user = user
+            if 'profile_pic' in request.FILES:
+                student.profile_pic = request.FILES['profile_pic']
+            student.save()
+            registered = True
+        else:
+            print(user_form.errors , student_form.errors)
+    else:
+        user_form = UserForm()
+        student_form = StudentInfoForm()
+    return render(request,'accounts/studentregistration.html',{'user_form':user_form,'student_form':student_form,'registered':registered})
+def registerlecturer(request):
+    registered = False
+    if request.method == 'POST':
+        user_form = UserForm(data=request.POST)
+        lecturer_form = LecturerInfoForm(data=request.POST)
+        if user_form.is_valid() and lecturer_form.is_valid():
+            user = user_form.save()
+            user.set_password(user.password)
+            user.save()
+            lecturer = lecturer_form.save(commit=False)
+            lecturer.user = user
+            if 'profile_pic' in request.FILES:
+                lecturer.profile_pic = request.FILES['profile_pic']
+            lecturer.save()
+            registered = True
+        else:
+            print(user_form.errors , lecturer_form.errors)
+    else:
+        user_form = UserForm()
+        lecturer_form = LecturerInfoForm()
+    return render(request,'accounts/lecturerregistration.html',{'user_form':user_form,'lecturer_form':lecturer_form,'registered':registered})
