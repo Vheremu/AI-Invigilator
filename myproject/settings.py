@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'groups',
     'sittings',
     'writeexam',
+    'questionbank',
 ]
 
 MIDDLEWARE = [

@@ -1,0 +1,22 @@
+{% extends 'questionbank/questionbankbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Question Detail View!</h1>
+<h2>Question Details:</h2>
+<p>Question : {{question_details.questionname}}</p>
+<p>A : {{question_details.a}}</p>
+<p>B : {{question_details.b}}</p>
+<p>C : {{question_details.c}}</p>
+<p>D : {{question_details.d}}</p>
+<p>Answer : {{question_details.answer}}</p>
+<div class='container'>
+  <p><a class ='btn btn-warning'href='{% url 'questionbank_app:update' pk=question_details.pk %}'>Update</a></p>
+</div>
+<div class='container'>
+  <p><a class ='btn btn-danger'href='{% url 'questionbank_app:delete' pk=question_details.pk %}'>Delete</a></p>
+</div>
+
+{% endblock %}

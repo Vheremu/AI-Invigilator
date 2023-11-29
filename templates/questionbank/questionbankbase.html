@@ -1,27 +1,23 @@
 <html>
 {% load static %}
+<script src="{% static 'questionbank/script.js' %}"></script>
 <head>
 <title>
 {% block title_html %}{% endblock %}
 </title>
 <link rel='stylesheet'href={% static 'css/style.css'%}>
-<link rel='stylesheet'href={% static 'mycss.css'%}>
 <link rel='stylesheet'href={% static 'bs/css/bootstrap.css'%}>
 </head>
 <body>
   <nav class ='navbar navbar-expand-lg-navbar-light bg-light 'align='center'>
       <div class='nav navbar-header'align='center'>
         <ul class='nav navbar-header'>
-
-          <li><a class='navbar-brand'href='{%url 'index'%}'>Home</a></li>
-            <li><a class='navbar-brand'href='{%url 'questionbank_app:index'%}'>QuestionBank</a></li>
-            <li>
-          <li><a class='navbar-brand'href='{%url 'students_app:register'%}'>Exams</a></li>
-          <li><a class='navbar-brand'href=''>Results</a></li>
-          <li><a class='navbar-brand'href=''>MyAccount</a></li>
-          <li><a class='navbar-brand'href=''>Feedback</a></li>
-
-          {% if user.is_authenticated %}<img src={{user.profile_pic.jpg}} alt='ohh noo its john cena '/>
+          <li><a class='navbar-brand'href='{% url 'questionbank_app:index'%}'>MENU</a></li>
+          <li><a class='navbar-brand'href='{% url 'questionbank_app:list' %}'>LIST </a></li>
+          <li><a class='navbar-brand'href='{% url 'questionbank_app:create' %}'>CREATE </a></li>
+          <li>
+          <li><a class='navbar-brand'href='{% url 'index'%}'>MAIN MENU</a></li>
+          {% if user.is_authenticated %}<img src={{user.profile_pic}} alt='404'/>
             <li><a class='navbar-link'href='{% url 'accounts_app:user_logout'%}'>Hello:{{user.username}} Logout</a></li>
           {% else %}<img src={% static 'images/img1.jpg'%}alt='login'/>
             <li><a class='navbar-link'href='{% url 'accounts_app:user_login'%}'>Login</a></li>
@@ -31,11 +27,11 @@
       </div>
     </nav>
 <h1>
- {% block body_block %}{% endblock %}
+Question Bank Application Base Header- {% block body_block %}{% endblock %}
 </h1>
 <article>
 {% block article_content %}{% endblock %}
-<hr><h3>Copyright AI Invigilator 2023</h3><hr>
+<h3>Question Bank Application Base Footer</h3>
 </article>
 </body>
 </html>

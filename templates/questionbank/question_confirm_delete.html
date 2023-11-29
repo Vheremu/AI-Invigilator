@@ -1,0 +1,14 @@
+{% extends 'questionbank/questionbankbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+
+<h1>Welcome To Question Delete View!</h1>
+<h2>Delete {{question_details.questionname}}?</h2>
+<form method = 'post'>
+  {% csrf_token %}
+  <input type='submit' class='btn btn-danger'value='Delete'>
+  <a href='{% url 'questionbank_app:list'  %}'>Cancel</a>
+</form>
+{% endblock %}

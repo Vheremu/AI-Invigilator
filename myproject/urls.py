@@ -23,6 +23,7 @@ urlpatterns = [
      path('studentsindex',views.studentsindex,name='studentsindex'),
     path('registergroup',views.registergroup.as_view(),name='registergroup'),
     path('accounts/',include('accounts.urls'),name='accounts'),
+    path('questionbank/',include('questionbank.urls'),name='questionbank'),
     path('exams/',include('exams.urls'),name='exams'),
     path('groups/',include('groups.urls'),name='groups'),
     path('sittings/',include('sittings.urls'),name='sittings'),

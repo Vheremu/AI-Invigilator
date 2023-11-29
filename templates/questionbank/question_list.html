@@ -1,0 +1,13 @@
+{% extends 'questionbank/questionbankbase.html' %}
+{% load static %}
+{% block body_block %}
+
+
+</script>
+<h1>Welcome To Question Bank List View !</h1>
+<ol>
+  {% for question in questions %}
+  <h2><li><a href='{{question.id}}'>{{question.questionname}}</a></li></h2>
+  {% endfor %}
+
+{% endblock %}
