@@ -7,7 +7,7 @@ django.setup()
 import random
 from students.models import Student
 from django.contrib.auth.backends import BaseBackend
-from accounts.models import UserProfileInfo
+from accounts.models import UserProfileInfo,StudentInfo,LecturerInfo
 from groups.models import Group,GroupMember,GroupMemberRequest
 from sittings.models import Candidate,CandidateRequests,Sitting
 # from faker import Faker
@@ -91,6 +91,22 @@ def registersitting(UserProfileInfo,var):
 
 def userfirsttime(var):
     return 0
+def getLecturerInfo(var):
+    try:
+        user= LecturerInfo.objects.get(user=var)
+    except:
+        return 0
+
+
+    return user
+def getStudentInfo(var):
+    try:
+        user= StudentInfo.objects.get(user=var)
+    except:
+        return 0
+
+
+    return user
 def getUserProfileInfo(var):
     try:
         user= UserProfileInfo.objects.get(user=var)

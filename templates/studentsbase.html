@@ -6,18 +6,16 @@
 </title>
 <link rel='stylesheet'href={% static 'css/style.css'%}>
 <link rel='stylesheet'href={% static 'bs/css/bootstrap.css'%}>
-   
 </head>
 <body>
   <nav class ='navbar navbar-expand-lg-navbar-light bg-light 'align='center'>
       <div class='nav navbar-header'align='center'>
-          
         <ul class='nav navbar-header'>
-            
+
           <li><a class='navbar-brand'href='{%url 'index'%}'>Home</a></li>
-          <li><a class='navbar-brand'href='{%url 'students_app:register'%}'>Students</a></li>
-          <li><a class='navbar-brand'href=''>About</a></li>
-          <li><a class='navbar-brand'href=''>Help</a></li>
+          <li><a class='navbar-brand'href='{%url 'students_app:register'%}'>Exams</a></li>
+          <li><a class='navbar-brand'href=''>Results</a></li>
+          <li><a class='navbar-brand'href=''>MyAccount</a></li>
           <li><a class='navbar-brand'href=''>Feedback</a></li>
 
           {% if user.is_authenticated %}<img src={{user.profile_pic.jpg}} alt='ohh noo its john cena '/>

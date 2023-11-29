@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from accounts.models import StudentInfo,LecturerInfo
 from accounts.forms import UserForm,UserProfileInfoForm,StudentInfoForm,LecturerInfoForm
 from django.urls import reverse
 from django.contrib.auth.views import LoginView
@@ -32,7 +33,17 @@ def user_login(request):
         print('hello')
 
 def index(request):
-    return render(request,'index.html')
+    if request.user.is_authenticated:
+        print(user)
+        try:
+            student = StudentInfo.objects.get(user=request.user)
+            print('user exists')
+        except StudentInfo.DoesNotExist:
+                print('user does not exist')
+    else:
+        print('user is not authenticated')
+    usertype=request.POST.get('user')
+    return render(request,'index.html',{'usertype':usertype})
 def prompt(request):
     return render(request,'accounts/prompt.html')
 def register(request):

@@ -20,6 +20,7 @@ app_name = 'myproject_app'
 urlpatterns = [
     path('admin/', admin.site.urls,name='admins'),
     path('',views.index,name='index'),
+     path('studentsindex',views.studentsindex,name='studentsindex'),
     path('registergroup',views.registergroup.as_view(),name='registergroup'),
     path('accounts/',include('accounts.urls'),name='accounts'),
     path('exams/',include('exams.urls'),name='exams'),

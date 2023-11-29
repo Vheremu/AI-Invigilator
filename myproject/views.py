@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import View , TemplateView
+from accounts.models import StudentInfo,LecturerInfo
 from groups.models import GroupMemberRequest
 from django.urls import reverse,reverse_lazy
 from django.views.generic import (CreateView)
@@ -13,6 +14,26 @@ def index(request):
     # iddata = request.POST.get('id')
     # newuser = addGroupMember(iddata)
     # print(newuser)
+    if request.user.is_authenticated:
+        print('user authenticated')
+        try:
+            student = StudentInfo.objects.get(user=request.user)
+            print('student exists')
+            return render(request,'studentsindex.html')
+        except StudentInfo.DoesNotExist:
+                print('student does not exist')
+    else:
+        print('user is not authenticated')
+    if request.user.is_authenticated:
+        print('user authenticated')
+        try:
+            lecturer = LecturerInfo.objects.get(user=request.user)
+            print('lecturer exists')
+            return render(request,'lecturersindex.html')
+        except LecturerInfo.DoesNotExist:
+                print('lecturer does not exist')
+    else:
+        print('user is not authenticated')
     if request.user.pk:
         num='registered user'
         user=request.user.pk
@@ -24,6 +45,10 @@ def index(request):
 
     my_dict = {'insert_me':num,'lecturers':lecturerscheck}
     return render(request,'index.html',context=my_dict)
+def studentsindex(request):
+
+   
+    return render(request,'studentsindex.html')
 class registergroup(CreateView):
     fields = ('group','user')
     model = GroupMemberRequest
