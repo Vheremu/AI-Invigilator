@@ -5,26 +5,30 @@
 {% block title_html %}{% endblock %}
 </title>
 <link rel='stylesheet'href={% static 'css/style.css'%}>
-<link rel='stylesheet'href={% static 'mycss.css'%}>
+<link rel='stylesheet'href={% static 'nav.css'%}>
 <link rel='stylesheet'href={% static 'bs/css/bootstrap.css'%}>
 </head>
 <body>
-  <nav class ='navbar navbar-expand-lg-navbar-light bg-light 'align='center'>
-      <div class='nav navbar-header'align='center'>
+  <nav class ='Container'>
+      <div class='container'>
+
+        <div>
+          <img class='imag' src={% static 'images/f.jpg'%} alt='img3'/>
+        </div>
         <ul class='nav navbar-header'>
 
-          <li><a class='navbar-brand'href='{%url 'index'%}'>Home</a></li>
-            <li><a class='navbar-brand'href='{%url 'questionbank_app:index'%}'>QuestionBank</a></li>
-            <li>
-          <li><a class='navbar-brand'href='{%url 'students_app:register'%}'>Exams</a></li>
-          <li><a class='navbar-brand'href=''>Results</a></li>
-          <li><a class='navbar-brand'href=''>MyAccount</a></li>
-          <li><a class='navbar-brand'href=''>Feedback</a></li>
-
-          {% if user.is_authenticated %}<img src={{user.profile_pic.jpg}} alt='ohh noo its john cena '/>
-            <li><a class='navbar-link'href='{% url 'accounts_app:user_logout'%}'>Hello:{{user.username}} Logout</a></li>
+          <a class='navbar'href='{%url 'index'%}'>Home</a>
+            <a class='navbar'href='{%url 'questionbank_app:index'%}'>QuestionBank</a>
+            
+          <a class='navbar'href='{%url 'students_app:register'%}'>Exams</a>
+          <a class='navbar'href=''>Results</a>
+          <a class='navbar'href=''>MyAccount</a>
+          <a class='navbar'href=''>Feedback</a>
+          
+          {% if user.is_authenticated %}<img class='img' src={{user.profile_pic.jpg}} alt='ohh noo its john cena '/>
+            <a class='logs'href='{% url 'accounts_app:user_logout'%}'>Hello:{{user.username}} Logout</a>
           {% else %}<img src={% static 'images/img1.jpg'%}alt='login'/>
-            <li><a class='navbar-link'href='{% url 'accounts_app:user_login'%}'>Login</a></li>
+            <a class='logs'href='{% url 'accounts_app:user_login'%}'>Login</a>
           {% endif %}
 
         </ul>

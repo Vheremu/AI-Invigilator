@@ -1,22 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_block %}
-
-<div class="container">
+<link rel='stylesheet'href={% static 'wlx.css'%}>
+<div class="containe">
   <!-- <img src={% static 'images/img1.jpg'%} alt='ohh noo its john cena'/> -->
-  <h1>Please Login</h1>
+  <h4>Please Login</h4>
 
-
+   <b class='ida'>
   <img src={% static 'images/img1.jpg'%}alt='login'/>
   <form action={% url 'accounts_app:user_login'%} method='POST'>
     <div class='container'>
     {% csrf_token %}
     <label for='username'>Username:</label>
     <input type='text'name='username'placeholder='enter username'class='form-control'></input>
+    <br><br>
     <label for='password'>Password:</label>
     <input type='password'name='password'placeholder='enter password'class='form-control'></input>
-    </div>
-    <input type='submit'name='submit'value='Login'align='center'>
+    </div>  <br>
+    
+    <input type='submit'name='submit'value='Login'align='center' class='log'>
   </form>
+</b> 
+
 </div>
 {% endblock %}

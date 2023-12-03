@@ -1,16 +1,22 @@
 {% extends 'students/students_base.html' %}
 {% load static %}
 {% block body_block %}
-<h1>Welcome To Students Register Form!<br>
-<div class='container'>
-  Please enter Sitting ID and register
+<link rel='stylesheet'href={% static 'wlx.css'%}>
+
+
+<h1>Exam Registration<br>
+<div class='containe'>
+  <h4>
   <form action={% url 'students_app:register'%} method='POST'>
     <div class='container'>
     {% csrf_token %}
-    <label for='username'>Sitting Id:</label>
-    <input type='text'name='id'placeholder='enter sitting id'class='form-control'></input>
-
-    <input type='submit'name='submit'value='Register'align='center'>
+    <br>
+    <input type='text'name='id'placeholder='SITTING id'class='for'></input>
+    <b ><input type='submit'name='submit'value='Register'class='log'></b>
   </form>
 </div>
+
+
+
+
 {% endblock %}

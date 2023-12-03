@@ -1,16 +1,96 @@
 {% extends 'questionbank/questionbankbase.html' %}
 {% load static %}
 {% block body_block %}
-<h1>Welcome To Question Form!<br>
+<link rel='stylesheet'href={% static 'wlx.css'%}>
+
+
 {% if not form.instance.pk %}
 Create Question
 {% else %}
-Update Question
+<h1>Update Question<h1>
 {% endif %}
 </h1>
 <form method = 'post'>
   {% csrf_token %}
   {{ form.as_p }}
-  <input type='submit' class='btn btn-primary'value='submit'>
+  <b ><input type='submit' class='log'value='submit'></b>
+
+    <style>
+
+  .log{
+    padding: 6px;
+    border-radius: 20px;
+    margin-left: 13%;
+    width: 200px;
+    background-color: darkolivegreen;
+    color: white;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+  }
+
+  .log:hover{
+    background: navy;
+    color: #54b3d6 50%;
+  }
+  .img{
+    width: 100px;
+    height: 100px;
+    margin-left: 45%;
+}
+img{
+  width: 100px;
+  height: 100px;
+ 
+}
+  textarea{
+    font: large;
+  }
+  
+
+  form {
+    width: 1000px;
+    font: 20px;
+    background: rgb(1, 1, 14);
+    margin-left: 15%;
+  }
+  
+  /* Clear floats */
+  form:after {
+    content: "";
+    display: table;
+    clear: both;
+
+  }
+  
+  label,
+  fields{
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    margin-left: 6%;
+    
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input{
+    padding: 6px;
+    border-radius: 20px;
+    margin-left: 19.5%;
+    width: 450px;
+    background-color: white;
+    color: black;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    float: right;
+  }
+
+ 
+</style>
+
 
 {% endblock %}

@@ -1,8 +1,219 @@
-.navbar-header{
-   text-align: center;
-    display: inline-flex;
-    text-decoration: none;
-    justify-content: space-around;
+.Container{
+text-align: center;
+ 
+align-items: center; 
     
 }
 
+.navbar{
+    text-decoration: none;
+    padding: 30px;
+    color: green;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    justify-content: space-around;
+
+}
+
+
+
+
+.navbar:hover{
+    color: rgb(46, 46, 158);
+
+   
+}
+
+.navbar-{
+    text-decoration: none;
+    padding: 30px;
+    color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    justify-content: space-around;
+    margin-left: 2%;
+
+}
+ 
+.bt{
+    border-radius: 100%;
+    border-color: rgb(13, 0, 128);
+
+    border-width: 8px;
+    width: 200px;
+    margin-left: -13%;
+    height: 100px;
+
+}
+
+.Contain{
+margin-left: 8%;
+padding: 5px;
+justify-content: space-around;
+margin-top: 3%;
+
+}
+.idat{
+    color: maroon;
+    font-size: xx-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+
+.bt{
+    animation: animateBg 5s linear infinite;
+}
+
+
+.navbar-{
+    animation: animateBg 5s linear infinite;
+
+}
+
+@keyframes animateBg {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+
+}
+
+
+a {
+    position: relative;
+    background-image: linear-gradient(
+            to right,
+            #54b3d6,
+            #54b3d6 50%,
+            #fcfafa 50%
+    );
+}
+a {
+    background-image: linear-gradient(
+            to right,
+            #54b3d6,
+            #54b3d6 50%,
+            #fdfcfc 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+}
+a {
+    background-image: linear-gradient(
+            to right,
+            #54b3d6,
+            #54b3d6 50%,
+            #181717 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+a:before {
+    content: '';
+    background: #54b3d6;
+    display: block;
+    position: absolute;
+    height: 3px;
+}
+a:hover {
+    background-position: 0;
+    color: darkred;
+}
+a:hover::before {
+    left: 0;
+  right: 0;
+    margin-left: auto; 
+    margin-right: auto;
+    bottom: 1px;
+}
+
+a {
+    background-image: linear-gradient(
+            to right,
+            #54b3d6,
+            #54b3d6 50%,
+            #944141 50%
+    );
+    background-size: 200% 100%;
+    background-position: -100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease-in-out;
+}
+
+@media all and (min-width: 992px) {
+	.navbar .nav-item .dropdown-menu{ display: none; }
+	.navbar .nav-item:hover .nav-link{   }
+	.navbar .nav-item:hover .dropdown-menu{ display: block; }
+	.navbar .nav-item .dropdown-menu{ margin-top:0; }
+}	
+
+.logs{
+    float: right;
+    align-items: end;
+    background-color: #181717;
+    animation: animateBg 5s linear infinite;
+    text-decoration: none;
+    padding: 30px;
+    color: red;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 25px;
+    justify-content: space-around;
+    margin-left: 90%;
+    margin-top: -8.5%;
+
+}
+
+
+
+.img{
+    width: 100px;
+    height: 100px;
+   
+  }
+
+  .imag{
+    width: 1362px;
+    height: 100px;
+    margin-left: -13%;
+  }
+
+  .image{
+    width: 1362px;
+    height: 5px;
+  }
+
+  .p{
+    font-size: larger;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font: bold;
+    text-align: start; 
+   margin-left: 2%;
+   color: black;
+  }
+
+  .p1{
+    font: large;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-left: 10%;
+  }
+
+  .p2{
+    margin-left: 10%;
+    font: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+  }
+
+  .create{
+    color: rgb(192, 7, 7);
+    font: bold;
+    animation: animateBg 1s linear infinite;
+  }
+
+  .bo{
+    text-align: center;
+    display: flex;
+  }

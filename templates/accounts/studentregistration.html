@@ -1,25 +1,106 @@
 {% extends 'base.html'%}
 {% load static %}
+{% include 'wlx.css' %}
+
+<link rel='stylesheet'href={% static 'wlx.css'%}>
 
 {% block body_block %}
-<img src={% static 'images/img1.jpg'%} alt='img3'/>
+<img class='img' src={% static 'images/cut.png'%} alt='img3'/>
 <div class='container'align ='center'>
   {% if registered %}
    <h1>Thank you for registering!</h1>
  {% else %}
-   <h1>Register Student Here!</h1>
-   <h3>Fill out the form:</h3>
+   <h2>Student</h2>
+   <h4>Complete the form below and click Register</h4>
    <form action={% url 'accounts_app:registerstudent'%} method='POST'enctype='multipart/form-data' method='post' align='center'>
      <div class='container'>
      {% csrf_token %}
      {{ user_form.as_p }}
      {{ student_form.as_p }}
      </div>
-     <input type='submit' name='' value='Register'>
+     <b ><input type='submit' class='log' value='Register'></b>
 
    </form>
  {% endif %}
 
 
+ <style>
+
+  .log{
+    padding: 6px;
+    border-radius: 20px;
+    margin-left: 13%;
+    width: 200px;
+    background-color: darkolivegreen;
+    color: white;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+  }
+
+  .log:hover{
+    background: navy;
+    color: #54b3d6 50%;
+  }
+  .img{
+    width: 100px;
+    height: 100px;
+    margin-left: 45%;
+}
+img{
+  width: 100px;
+  height: 100px;
+ 
+}
+  textarea{
+    font: large;
+  }
+  
+
+  form {
+    width: 1000px;
+    font: 20px;
+    background: rgb(1, 1, 14);
+    margin-left: 15%;
+  }
+  
+  /* Clear floats */
+  form:after {
+    content: "";
+    display: table;
+    clear: both;
+
+  }
+  
+  label,
+  fields{
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    margin-left: 6%;
+    
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  input{
+    padding: 6px;
+    border-radius: 20px;
+    margin-left: 19.5%;
+    width: 450px;
+    background-color: white;
+    color: black;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    float: right;
+  }
+
+ 
+</style>
+
 </div>
 {% endblock %}
+

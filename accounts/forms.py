@@ -4,7 +4,7 @@ from accounts.models import UserProfileInfo,StudentInfo,LecturerInfo
 from django.contrib.auth.forms import AuthenticationForm
 
 class UserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'password'}))
     class Meta():
         model = User
         fields = ('username','first_name','last_name','email','password',)

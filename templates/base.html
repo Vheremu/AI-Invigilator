@@ -2,6 +2,10 @@
 {% load static %}
 <link rel='stylesheet'href={% static 'nav.css'%}>
  <script src="{% static 'script.js' %}"></script>
+ 
+
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <head>
 <title>
 {% block title_html %}{% endblock %}
@@ -9,23 +13,30 @@
 
 </head>
 <body>
-  <nav class ='Container'>
+  <nav class ='Container'> 
+    
       <div class='container'>
+         
           
-        <ul class='nav navbar-header'>
-            
-          <li><a class='navbar'href='{%url 'index'%}'>Home</a></li>
-          <li><a class='navbar-brand'href='{%url 'students_app:register'%}'>Students</a></li>
-          <li><a class='navbar-brand'href=''>About</a></li>
-          <li><a class='navbar-brand'href=''>Help</a></li>
-          <li><a class='navbar-brand'href=''>Feedback</a></li>
+          
+        <ul class='navbar-header'>
+           <button class='bt'> <b class='idat'>IDAT</b> </button>
+          <a class='navbar'href='{%url 'index'%}'>Home</a>
+          <a class='navbar'href='{%url 'students_app:register'%}'>Students</a>
+          <a class='navbar'href=''>About</a>
+          <a class='navbar'href=''>Help</a>
+          <a class='navbar'href=''>Feedback</a>
 
-          {% if user.is_authenticated %}<img src={{user.profile_pic.jpg}} alt='ohh noo its john cena '/>
-            <li><a class='navbar-link'href='{% url 'accounts_app:user_logout'%}'>Hello:{{user.username}} Logout</a></li>
+          {% if user.is_authenticated %}<img  src={{user.profile_pic.jpg}} alt='ohh noo its john cena '/>
+        <a class='navbar-'href='{% url 'accounts_app:user_logout'%}'>Hello:{{user.username}} Logout</a>
           {% else %}<img src={% static 'images/img1.jpg'%}alt='login'/>
-            <li><a class='navbar-link'href='{% url 'accounts_app:user_login'%}'>Login</a></li>
+        <a class='navbar-'href='{% url 'accounts_app:user_login'%}'>Login</a>
           {% endif %}
 
+          
+
+            </ul>
+          </div>
         </ul>
       </div>
     </nav>

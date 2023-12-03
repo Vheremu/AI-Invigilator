@@ -1,13 +1,24 @@
 {% extends 'questionbank/questionbankbase.html' %}
 {% load static %}
 {% block body_block %}
-
+<link rel='stylesheet'href={% static 'wlx.css'%}>
 
 </script>
-<h1>Welcome To Question Bank List View !</h1>
-<ol>
+<h1>Question Bank </h1>
+<ol >
   {% for question in questions %}
-  <h2><li><a href='{{question.id}}'>{{question.questionname}}</a></li></h2>
+  <div >
+    
+      <h5><li><button class='ques'><a href='{{question.id}}'>{{question.questionname}}</a></button></li></h5>
+    
+  </div>
+  
   {% endfor %}
+</ol>
+
+<style>
+
+
+</style>
 
 {% endblock %}

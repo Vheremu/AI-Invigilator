@@ -1,22 +1,24 @@
 {% extends 'questionbank/questionbankbase.html' %}
 {% load static %}
 {% block body_block %}
-
-
+<link rel='stylesheet'href={% static 'wlx.css'%}>
+<link rel='stylesheet'href={% static 'nav.css'%}>
 </script>
 <h1>Welcome To Question Detail View!</h1>
-<h2>Question Details:</h2>
-<p>Question : {{question_details.questionname}}</p>
-<p>A : {{question_details.a}}</p>
-<p>B : {{question_details.b}}</p>
-<p>C : {{question_details.c}}</p>
-<p>D : {{question_details.d}}</p>
-<p>Answer : {{question_details.answer}}</p>
+<h3>Question Details:</h3><br><br>
+<p class='p'>Question : {{question_details.questionname}}</p>
+<p class='p1'>A : {{question_details.a}}</p>
+<p class='p1'>B : {{question_details.b}}</p>
+<p class='p1'>C : {{question_details.c}}</p>
+<p class='p1'>D : {{question_details.d}}</p>
+<p class='p'>Answer : {{question_details.answer}}</p>
 <div class='container'>
-  <p><a class ='btn btn-warning'href='{% url 'questionbank_app:update' pk=question_details.pk %}'>Update</a></p>
+  <p><button class ='log'><a class ='log'href='{% url 'questionbank_app:update' pk=question_details.pk %}'>Update</a></button></p>
 </div>
+<br>
 <div class='container'>
-  <p><a class ='btn btn-danger'href='{% url 'questionbank_app:delete' pk=question_details.pk %}'>Delete</a></p>
+  <p>
+    <button class ='log'><a class ='log'href='{% url 'questionbank_app:delete' pk=question_details.pk %}'>Delete</a></button></p>
 </div>
 
 {% endblock %}

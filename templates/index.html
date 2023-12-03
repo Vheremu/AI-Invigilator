@@ -1,15 +1,39 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_block %}
-<h1>Online Invigilator Portal!</h1>
+
+<link rel='stylesheet'href={% static 'wlx.css'%}>
+<div class='bod'>
+<h1>WELCOME!</h1>
 <div class='card'>
 
   {% if user.is_authenticated %}
-    <h3>Welcome back :{{user.username}} </h3>
+    <h3>WELCOME back :{{user.username}} </h3>
 
   {% else %}
-    <h2>Online Invigilator Portal</h2>
-    <h3>New to AI INVIGILATOR ?<br><a class='card'href='{% url 'accounts_app:prompt'%}'>Register here</a><br><br></h3>
+    <br>
+    <h3> If you are New 
+    <b class='idat'>  <div class="dropdown">
+              <button class='log'><b class='ida'>Register</b></button>
+              
+              <div class="dropdown-content">
+                <a class='cards'href='{% url 'accounts_app:registerlecturer'%}'>Lecturer</a>
+                <br><a class='cards'href='{% url 'accounts_app:registerstudent'%}'>Student</a>
+                
+              </div>
+            </div>
+          
+          </a><br><br></b> 
+
+        
+
+
+  </h3>
+
+
+  
+
+
   {% endif %}
 
 </div>
@@ -34,7 +58,7 @@
 
 </div>
 
-
+</div>
 
 
 {% endif %}

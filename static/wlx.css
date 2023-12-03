@@ -1,0 +1,210 @@
+h1{
+    text-align: center;
+    color: black;
+}
+
+h3{
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.tb{
+    width: 15%;
+    height: 7%;
+    border-radius: 30%;
+    border: 10px;
+}
+
+.idat{
+    animation: animateBg 5s linear infinite;
+}
+
+.bod{
+    background-image: url("./images/c.jpg");
+    background-repeat: no-repeat;
+    background-size: 1500px;
+}
+
+
+/*                             REGISTRATION              */
+
+.btO{
+    width: 60%;
+    height: 40%;
+    border-radius: 25%;
+    background-color: transparent;
+    padding: 5px;
+    justify-content: space-around;
+}
+
+/*                         LOGING IN                            */
+
+.ida{
+    color: white;
+    font-size: x-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 20px;
+
+}
+
+.form-control{
+    padding: 5px;
+    border-radius: 10px;
+    width: 300px;
+    height: 35px;
+    text-align: center;
+    
+ 
+}
+
+.for{
+    font: bold;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 5px;
+    border-radius: 1px;
+    width: 300px;
+    height: 35px;
+    text-align: center;
+    margin-top: 1.5%;
+    background-color: wheat;
+}
+
+.car{
+    border-radius: 20%;
+    padding: 2px;
+    align-items: ;
+}
+
+.log{
+    padding: 6px;
+    border-radius: 20px;
+    margin-left: 13%;
+    width: 200px;
+    background-color: rgb(91, 92, 88);
+    color: white;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: -1.5%;
+    
+}
+.log:hover{
+    background-color: black;
+    color: aquamarine;
+    font-size: large;
+   
+}
+
+
+.logss{
+    padding: 6px;
+    border-radius: 20px;
+    margin-left: 7%;
+    width: 200px;
+    background-color: rgb(38, 39, 36);
+    color: white;
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: -1.5%;
+    
+}
+.logss:hover{
+    background-color: black;
+    color: aquamarine;
+    font-size: large;
+   
+}
+
+.containe{
+    background-image: url("./images/e.jpg");
+    background-repeat: no-repeat;
+    background-size: 1400px;
+}
+
+h4{
+    color: white;
+    font-size: larger;
+}
+h6{
+    
+    margin-top: -5%;
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.col{
+    color: green;
+    size: 50px;
+}
+
+
+
+.card{
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 15px;
+    border: navy;
+    border-width: 5px;
+}
+
+.cards{
+    font-size: 25px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 5px;
+    border: navy;
+    border-width: 5px;
+}
+
+
+/*                    /LOGIN                      */
+
+
+/*    ................................FORMS............................*/
+
+
+.ques{
+    border-radius: 25px;
+    margin-left: 3%;
+   
+    background-color: rgb(241, 241, 247);
+    
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    align-items: center;
+    right: 0;
+    background-color: transparent;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: inline-flex;
+  }
+  
+  .dropdown a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none; 
+    display: block;
+  }
+
+  a{
+    background-color: transparent;
+  }
+  
+  .dropdown a:hover {
+    background-color: transparent
+  }
